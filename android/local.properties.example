@@ -1,0 +1,18 @@
+## Copy this file to local.properties and fill in local-only values.
+## Do not commit local.properties.
+
+sdk.dir=
+
+BAIDU_MAPS_API_KEY=
+DEEPSEEK_API_KEY=
+
+HUAWEI_CLOUD_USER=
+HUAWEI_CLOUD_PWD=
+HUAWEI_CLOUD_DOMAIN=
+HUAWEI_CLOUD_PROJECT_NAME=
+HUAWEI_PROJECT_ID=
+HUAWEI_REGION=
+HUAWEI_DEVICE_ID=
+HUAWEI_IOTDA_ENDPOINT=
+HUAWEI_IAM_ENDPOINT=
+HUAWEI_GPS_URL=

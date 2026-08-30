@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" overridePins="true"/>
+            <certificates src="user" overridePins="true"/>
+        </trust-anchors>
+    </base-config>
+    <!-- 允许解析华为云所有域名 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">myhuaweicloud.com</domain>
+        <domain includeSubdomains="true">huaweicloud.com</domain>
+    </domain-config>
+</network-security-config>

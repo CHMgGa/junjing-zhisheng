@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius_6">6dp</dimen>
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="radius_10">10dp</dimen>
+
+    <dimen name="pad_12">12dp</dimen>
+    <dimen name="pad_16">16dp</dimen>
+    <dimen name="pad_20">20dp</dimen>
+
+    <dimen name="row_h">48dp</dimen>
+
+    <!-- 通用间距 (所有页面的内边距、外边距) -->
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_15">12dp</dimen>
+    <dimen name="margin_20">16dp</dimen>
+
+    <!-- 底部导航栏专用 (你的核心适配控件) -->
+    <dimen name="nav_height">55dp</dimen>      <!-- 导航栏高度 -->
+    <dimen name="nav_icon_size">22dp</dimen>   <!-- 导航栏图标大小 -->
+
+    <!-- 文字大小 (所有页面通用) -->
+    <dimen name="text_size_12">12sp</dimen>   <!-- 小文字：导航栏文字 -->
+    <dimen name="text_size_14">14sp</dimen>   <!-- 常规文字：按钮小字、提示文字 -->
+    <dimen name="text_size_16">16sp</dimen>   <!-- 中等文字：输入框、大按钮文字 -->
+    <dimen name="text_size_18">18sp</dimen>   <!-- 中等文字：标题 -->
+    <dimen name="text_size_30">30sp</dimen>   <!-- 超大文字：页面主标题 -->
+
+    <!-- 控件高度 (登录/注册页 输入框、按钮专用) -->
+    <dimen name="edit_text_height">40dp</dimen>  <!-- 手机号/密码输入框高度 -->
+    <dimen name="btn_height">45dp</dimen>        <!-- 注册/获取验证码按钮高度 -->
+</resources>

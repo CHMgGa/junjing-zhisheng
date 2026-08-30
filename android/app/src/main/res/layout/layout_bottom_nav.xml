@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/nav_height"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:padding="@dimen/margin_5"
+    android:elevation="5dp">
+
+    <!-- 大棚按钮 -->
+    <LinearLayout
+        android:id="@+id/ll_nav_greenhouse"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless">
+
+        <TextView android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#E0EADD" android:gravity="center" android:text="🌿️" android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="大棚"
+            android:textColor="#666666"
+            android:textSize="@dimen/text_size_14"
+            android:layout_marginTop="@dimen/margin_2"/>
+    </LinearLayout>
+
+    <!-- 管理按钮 -->
+    <LinearLayout
+        android:id="@+id/ll_nav_manage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless">
+
+        <TextView android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#E0EADD" android:gravity="center" android:text="🔧️" android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="管理"
+            android:textColor="#666666"
+            android:textSize="@dimen/text_size_14"
+            android:layout_marginTop="@dimen/margin_2"/>
+    </LinearLayout>
+
+    <!-- 我的按钮 -->
+    <LinearLayout
+        android:id="@+id/ll_nav_mine"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless">
+
+        <TextView android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#E0EADD" android:gravity="center" android:text="👤️" android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的"
+            android:textColor="#666666"
+            android:textSize="@dimen/text_size_14"
+            android:layout_marginTop="@dimen/margin_2"/>
+    </LinearLayout>
+</LinearLayout>
+

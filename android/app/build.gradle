@@ -1,0 +1,157 @@
+plugins {
+    id 'com.android.application'
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withInputStream { stream ->
+        localProperties.load(stream)
+    }
+}
+
+def secretValue = { name ->
+    localProperties.getProperty(name, '')
+}
+
+def buildConfigString = { name ->
+    def value = secretValue(name)
+    '"' + value.replace('\\', '\\\\').replace('"', '\\"') + '"'
+}
+
+android {
+    // 保留compileSdkVersion 33，不降级（适配高版本安卓）
+    compileSdkVersion 33
+    // 使用稳定的Build Tools版本，避免损坏问题
+    buildToolsVersion '30.0.3'
+    ndkVersion "21.0.6113669"
+    // 保留JDK 8配置（适配你的旧版AS，避免JDK 11冲突）
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 以下所有配置完全保留，一行不改
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs', 'libs']
+            jni.srcDirs = []
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libavutil-55.so'
+        pickFirst 'lib/armeabi-v7a/libavfilter-6.so'
+        pickFirst 'lib/armeabi-v7a/libswscale-4.so'
+        pickFirst 'lib/armeabi-v7a/libavdevice-57.so'
+        pickFirst 'lib/armeabi-v7a/libavformat-57.so'
+        pickFirst 'lib/armeabi-v7a/libpostproc-54.so'
+        pickFirst 'lib/armeabi-v7a/libavcodec-57.so'
+        pickFirst 'lib/armeabi-v7a/libswresample-2.so'
+        pickFirst 'lib/armeabi-v7a/libBaiduMapSDK_base_v7_1_0.so'
+        pickFirst 'lib/armeabi-v7a/libBaiduMapSDK_map_v7_1_0.so'
+        pickFirst 'lib/armeabi-v7a/libBaiduTraceSDK_v3_1_8.so'
+        pickFirst 'lib/armeabi-v7a/libcrypto.so'
+        pickFirst 'lib/armeabi-v7a/libgnustl_shared.so'
+        pickFirst 'lib/armeabi-v7a/libssl.so'
+        pickFirst 'lib/arm64-v8a/libBaiduMapSDK_base_v7_1_0.so'
+        pickFirst 'lib/arm64-v8a/libBaiduMapSDK_map_v7_1_0.so'
+        pickFirst 'lib/arm64-v8a/libBaiduTraceSDK_v3_1_8.so'
+        pickFirst 'lib/arm64-v8a/libcrypto.so'
+        pickFirst 'lib/arm64-v8a/libgnustl_shared.so'
+        pickFirst 'lib/arm64-v8a/libssl.so'
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.example.yangdujun"
+        minSdkVersion 26
+        targetSdkVersion 33 // 保留33，不降级
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                BAIDU_MAPS_API_KEY: secretValue('BAIDU_MAPS_API_KEY')
+        ]
+        buildConfigField "String", "DEEPSEEK_API_KEY", buildConfigString('DEEPSEEK_API_KEY')
+        buildConfigField "String", "HUAWEI_CLOUD_USER", buildConfigString('HUAWEI_CLOUD_USER')
+        buildConfigField "String", "HUAWEI_CLOUD_PWD", buildConfigString('HUAWEI_CLOUD_PWD')
+        buildConfigField "String", "HUAWEI_CLOUD_DOMAIN", buildConfigString('HUAWEI_CLOUD_DOMAIN')
+        buildConfigField "String", "HUAWEI_CLOUD_PROJECT_NAME", buildConfigString('HUAWEI_CLOUD_PROJECT_NAME')
+        buildConfigField "String", "HUAWEI_PROJECT_ID", buildConfigString('HUAWEI_PROJECT_ID')
+        buildConfigField "String", "HUAWEI_REGION", buildConfigString('HUAWEI_REGION')
+        buildConfigField "String", "HUAWEI_DEVICE_ID", buildConfigString('HUAWEI_DEVICE_ID')
+        buildConfigField "String", "HUAWEI_IOTDA_ENDPOINT", buildConfigString('HUAWEI_IOTDA_ENDPOINT')
+        buildConfigField "String", "HUAWEI_IAM_ENDPOINT", buildConfigString('HUAWEI_IAM_ENDPOINT')
+        buildConfigField "String", "HUAWEI_GPS_URL", buildConfigString('HUAWEI_GPS_URL')
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+                abiFilters 'armeabi-v7a'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // ========== 仅新增这部分Beta配置，其余完全保留 ==========
+        beta {
+            // 继承release的所有配置，不改动原有release逻辑
+            signingConfig signingConfigs.debug
+
+            // Beta版标记（代码中可区分，可选）
+            buildConfigField "boolean", "IS_BETA", "true"
+            // 包名后缀（避免与正式版冲突，可同时安装）
+            applicationIdSuffix ".beta"
+            // 保留调试能力（方便测试）
+            debuggable true
+            // Beta版APK自定义命名（可选，便于区分）
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = "app-beta-v${defaultConfig.versionName}.apk"
+                        output.outputFileName = fileName
+                    }
+                }
+            }
+        }
+        // ========== Beta配置结束 ==========
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    ndkVersion '21.0.6113669' // 保留原有NDK版本
+}
+
+dependencies {
+    // 保留所有原有依赖，仅移除冗余的gradle-api（避免冲突）
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.squareup.okio:okio:1.17.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.alibaba:fastjson:1.2.83'
+    implementation 'com.github.AAChartModel:AAChartCore:-SNAPSHOT'
+}

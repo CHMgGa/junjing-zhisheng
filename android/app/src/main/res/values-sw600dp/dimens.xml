@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 间距放大，页面不拥挤 -->
+    <dimen name="margin_5">6dp</dimen>
+    <dimen name="margin_8">10dp</dimen>
+    <dimen name="margin_15">20dp</dimen>
+    <dimen name="margin_20">25dp</dimen>
+
+    <!-- 底部导航栏放大，平板点击更舒服 -->
+    <dimen name="nav_height">70dp</dimen>
+    <dimen name="nav_icon_size">28dp</dimen>
+
+    <!-- 文字放大，平板上看的更清晰 -->
+    <dimen name="text_size_12">14sp</dimen>
+    <dimen name="text_size_14">16sp</dimen>
+    <dimen name="text_size_20">22sp</dimen>
+    <dimen name="text_size_30">32sp</dimen>
+
+    <!-- 输入框/按钮高度放大，平板触控更友好 -->
+    <dimen name="edit_text_height">50dp</dimen>
+    <dimen name="btn_height">55dp</dimen>
+</resources>

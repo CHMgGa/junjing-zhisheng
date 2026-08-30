@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 上面更偏绿、下面更偏灰，过渡更柔 -->
+    <gradient
+        android:startColor="#F2F2F2"
+        android:centerColor="#FFFFFF"
+        android:endColor="#4FA18C"
+        android:angle="90"/>
+</shape>
+

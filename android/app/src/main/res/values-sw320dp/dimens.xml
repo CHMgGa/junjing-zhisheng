@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 间距缩小一点，适配小屏 -->
+    <dimen name="margin_15">12dp</dimen>
+    <dimen name="margin_20">16dp</dimen>
+
+    <!-- 导航栏紧凑一点 -->
+    <dimen name="nav_height">55dp</dimen>
+    <dimen name="nav_icon_size">22dp</dimen>
+
+    <!-- 文字缩小一点，避免挤在一起 -->
+    <dimen name="text_size_14">12sp</dimen>
+    <dimen name="text_size_20">18sp</dimen>
+    <dimen name="text_size_30">26sp</dimen>
+
+    <!-- 输入框/按钮高度降低，适配小屏 -->
+    <dimen name="edit_text_height">40dp</dimen>
+    <dimen name="btn_height">45dp</dimen>
+</resources>

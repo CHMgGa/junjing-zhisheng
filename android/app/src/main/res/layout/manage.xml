@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#E9F2E6" android:clipChildren="false" android:clipToPadding="false">
+    <View android:layout_width="280dp" android:layout_height="280dp" android:layout_gravity="top|start" android:layout_marginTop="-80dp" android:layout_marginStart="-60dp" android:alpha="0.1" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="#558C58"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:padding="16dp" android:text="大棚管理" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            android:backgroundTint="#EBF6E5">
+            <GridLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="12dp">
+                <LinearLayout android:id="@+id/btn_device_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/abc_control_background_material"
+                    android:backgroundTint="#F2F6F1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/abc_control_background_material"
+                        android:backgroundTint="#A8C69F"
+                        android:gravity="center"
+                        android:text="📱"
+                        android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="设备状态管理" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/btn_alarm_config" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#F2F6F1" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="60dp"
+                        android:layout_height="60dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#E0EADD" android:gravity="center" android:text="⚙️" android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="告警阈值设置" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/btn_history_analysis" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#F2F6F1" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="60dp"
+                        android:layout_height="60dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#C8D6C5" android:gravity="center" android:text="📊" android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="历史数据分析" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/btn_real_time_analysis" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#F2F6F1" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="60dp"
+                        android:layout_height="60dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" android:gravity="center" android:text="📈" android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="实时数据分析" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/btn_device_monitor" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#F2F6F1" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="60dp"
+                        android:layout_height="60dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#CFDDCB" android:gravity="center" android:text="🔧" android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="设备调控" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/btn_alarm_record" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#F2F6F1" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="60dp"
+                        android:layout_height="60dp" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" android:gravity="center" android:text="🔔" android:textSize="40sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="告警记录" android:textColor="#4A6142" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="24dp" android:paddingVertical="8dp" android:text="处理告警信息" android:textColor="#2E7D32" android:textSize="18sp" android:textStyle="bold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#E9F2E6"
+            android:fillViewport="true">
+        <LinearLayout  android:id="@+id/layout_alarm_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="vertical" android:paddingHorizontal="16dp" />
+        </ScrollView>
+        <include layout="@layout/layout_bottom_nav" />
+    </LinearLayout>
+    </FrameLayout>

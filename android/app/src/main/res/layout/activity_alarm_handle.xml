@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9F2E6"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginTop="-50dp"
+        android:alpha="0.15"
+        android:background="@android:drawable/presence_online"
+        android:backgroundTint="#A8C69F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="-30dp"
+        android:layout_marginBottom="100dp"
+        android:alpha="0.08"
+        android:background="@android:drawable/presence_online"
+        android:backgroundTint="#A8C69F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_header"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#A8C69F"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="70dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:drawable/btn_default_small"
+                    android:backgroundTint="#9DBF80"
+                    android:stateListAnimator="@null"
+                    android:text="返回"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.1"
+                    android:text="告警处理"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="告警位置" android:textSize="12sp" android:textColor="#9EBA95" />
+                        <TextView android:id="@+id/tv_alarm_pos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1#大棚温度传感器" android:textSize="16sp" android:textColor="#4A6142" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#9EBA95"
+                            android:text="告警策略: "/>
+                        <TextView
+                            android:id="@+id/tv_alarm_strategy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="温度过高告警"
+                            android:textSize="15sp" android:textColor="#4A6142"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="告警详情" android:textSize="12sp" android:textColor="#9EBA95" />
+                        <TextView android:id="@+id/tv_alarm_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前状态大棚温度已连续2小时超过25℃" android:textSize="15sp" android:textColor="#4A6142" android:layout_marginBottom="12dp" />
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F5EF" android:layout_marginBottom="12dp"/>
+
+                        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="告警时间" android:textColor="#9EBA95" />
+                            <TextView android:id="@+id/tv_alarm_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:text="2020-12-20 17:00" android:textColor="#4A6142" android:textStyle="bold" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 执行干预操作" android:textColor="#5A7D54" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 请选择大棚" android:textColor="#6BA878" android:textStyle="bold" />
+                            <Spinner
+                                android:id="@+id/spinner_greenhouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="12dp"
+                                android:background="@drawable/custom_spinner_background"
+                                android:dropDownVerticalOffset="8dp"
+                                android:dropDownHorizontalOffset="0dp"
+                                android:spinnerMode="dropdown"
+                                android:popupBackground="@drawable/spinner_popup_background" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 请选择设备" android:textColor="#6BA878" android:textStyle="bold" />
+                            <Spinner
+                                android:id="@+id/spinner_device"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="12dp"
+                                android:background="@drawable/custom_spinner_background"
+                                android:dropDownVerticalOffset="8dp"
+                                android:dropDownHorizontalOffset="0dp"
+                                android:spinnerMode="dropdown"
+                                android:popupBackground="@drawable/spinner_popup_background" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● 拟执行操作" android:textColor="#6BA878" android:textStyle="bold" />
+                            <Spinner
+                                android:id="@+id/spinner_operate"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="12dp"
+                                android:background="@drawable/custom_spinner_background"
+                                android:dropDownVerticalOffset="8dp"
+                                android:dropDownHorizontalOffset="0dp"
+                                android:spinnerMode="dropdown"
+                                android:popupBackground="@drawable/spinner_popup_background" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    app:cardBackgroundColor="#F8FCF7"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="0dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提交时间" android:textColor="#9EBA95" />
+                        <TextView android:id="@+id/tv_submit_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:text="2025-12-20 19:00" android:textColor="#4A6142" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="#A8C69F"
+            android:elevation="8dp"
+            android:stateListAnimator="@null"
+            android:text="确认操作并提交"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:alpha="0.12"
+        android:background="@android:drawable/presence_online"
+        android:backgroundTint="#A8C69F"
+        android:elevation="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="180dp" />
+
+    <View
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:alpha="0.15"
+        android:background="@android:drawable/presence_online"
+        android:backgroundTint="#A8C69F"
+        android:elevation="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="150dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

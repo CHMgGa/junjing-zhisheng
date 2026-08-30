@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="wrap_content" android:clipChildren="false" android:clipToPadding="false">
+    <View android:layout_width="140dp" android:layout_height="140dp" android:layout_gravity="top|start" android:layout_marginStart="-40dp" android:layout_marginTop="-20dp" android:alpha="0.15" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" />
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="12dp" android:layout_marginVertical="6dp" app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="20dp" app:cardElevation="4dp">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="第一大棚"
+                android:textColor="#2E7D32"
+                android:textSize="@dimen/text_size_18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/ivPin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivPin"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="4dp"
+                android:src="@android:drawable/ic_menu_mylocation"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+                app:layout_constraintStart_toEndOf="@id/tvTitle"
+                app:tint="#9EBA95" />
+
+            <TextView android:id="@+id/tvDistance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:text="500m" android:textColor="#9EBA95" android:textSize="@dimen/text_size_12" app:layout_constraintBottom_toBottomOf="@id/ivPin" app:layout_constraintStart_toEndOf="@id/ivPin" />
+            <Button android:id="@+id/btnView" android:layout_width="70dp" android:layout_height="36dp" android:layout_marginEnd="85dp" android:background="#2E7D32" android:text="查看" android:textColor="#FFFFFF" android:textSize="@dimen/text_size_12" android:insetTop="0dp" android:insetBottom="0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <Button android:id="@+id/btnDelete" android:layout_width="70dp" android:layout_height="36dp" android:layout_marginEnd="5dp" android:background="#A8C69F" android:text="移除" android:textColor="#FFFFFF" android:textSize="@dimen/text_size_12" android:insetTop="0dp" android:insetBottom="0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <View android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="bottom|end" android:layout_marginEnd="10dp" android:layout_marginBottom="-5dp" android:alpha="0.4" android:background="@drawable/abc_control_background_material" android:backgroundTint="#2E7D32" android:elevation="50dp" />
+</FrameLayout>

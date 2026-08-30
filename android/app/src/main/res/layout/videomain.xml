@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9F2E6"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="-80dp"
+        android:layout_marginStart="-60dp"
+        android:alpha="0.1"
+        android:background="@drawable/abc_control_background_material"
+        android:backgroundTint="#A8C69F" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context="com.example.yangdujun.VideoMain">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="大棚视频监控"
+                android:textColor="#1B320E"
+                android:textSize="@dimen/text_size_30"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_back_page"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="left|center_vertical"
+                android:backgroundTint="#2E7D32"
+                android:text="返回"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/text_size_14"
+                app:cornerRadius="12dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#000000"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp">
+
+                <com.example.yangdujun.MyVideoView
+                    android:id="@+id/myVV"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-6dp"
+                android:layout_marginEnd="12dp"
+                android:alpha="0.6"
+                android:background="@drawable/abc_control_background_material"
+                android:backgroundTint="#2E7D32"
+                android:elevation="50dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="播放监控"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/text_size_14"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="暂停监控"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/text_size_14"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="重新播放"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/text_size_14"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#C64B4B"
+            android:text="停止监控"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_size_14"
+            app:cornerRadius="12dp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/abc_control_background_material"
+            android:backgroundTint="#C8D6C5"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="状态：监控就绪"
+            android:textColor="#4A6142"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</FrameLayout>

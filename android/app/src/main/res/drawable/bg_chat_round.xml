@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 聊天区超浅灰白背景 -->
+    <solid android:color="#F9FCFC"/>
+    <!-- 圆角大小 12dp -->
+    <corners android:radius="12dp"/>
+    <padding android:padding="1dp"/>
+</shape>

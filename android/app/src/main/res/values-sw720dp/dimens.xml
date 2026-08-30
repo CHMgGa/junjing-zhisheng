@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 间距最大化，页面留白合理 -->
+    <dimen name="margin_5">8dp</dimen>
+    <dimen name="margin_8">12dp</dimen>
+    <dimen name="margin_15">25dp</dimen>
+    <dimen name="margin_20">30dp</dimen>
+
+    <!-- 底部导航栏最大化，图标清晰 -->
+    <dimen name="nav_height">80dp</dimen>
+    <dimen name="nav_icon_size">32dp</dimen>
+
+    <!-- 文字最大化，大屏清晰可见 -->
+    <dimen name="text_size_12">16sp</dimen>
+    <dimen name="text_size_14">18sp</dimen>
+    <dimen name="text_size_20">24sp</dimen>
+    <dimen name="text_size_30">36sp</dimen>
+
+    <!-- 输入框/按钮高度最大化，触控体验极佳 -->
+    <dimen name="edit_text_height">55dp</dimen>
+    <dimen name="btn_height">60dp</dimen>
+</resources>

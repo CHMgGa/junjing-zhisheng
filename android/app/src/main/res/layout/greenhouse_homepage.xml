@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9F2E6"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/top_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="#558C58"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="6dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="1dp">
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="大棚"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#E9F2E6"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:spacing="@dimen/margin_8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_15"
+                android:paddingRight="@dimen/margin_15">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● 请选择大棚"
+                                android:textColor="#6BA878"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spinner_greenhouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="12dp"
+                                android:background="@drawable/custom_spinner_background"
+                                android:dropDownVerticalOffset="8dp"
+                                android:dropDownHorizontalOffset="0dp"
+                                android:spinnerMode="dropdown"
+                                android:popupBackground="@drawable/spinner_popup_background" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- 内容区域容器，用于控制显示/隐藏 -->
+                    <LinearLayout
+                        android:id="@+id/layout_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- 实时数据模块 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                app:cardBackgroundColor="#F6F8F5"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="4dp">
+                            <!-- 实时环境数据 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:padding="8dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/margin_15"
+
+                                android:orientation="vertical"
+                                android:paddingLeft="@dimen/margin_2"
+                                android:paddingRight="@dimen/margin_2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" 实时环境数据"
+                                    android:textColor="#365A3E"
+                                    android:textSize="@dimen/text_size_20"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#141E17"
+                                    android:textSize="8sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <!-- 第一行：土壤温度 + 空气温度 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <!-- 传感器1：土壤温度 -->
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+
+                                            android:layout_marginBottom="16dp"
+                                            app:cardBackgroundColor="#E9F2E9"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/jun_temp" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="93dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="土壤温度(℃)："
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_Soil_Temp"
+                                                    android:layout_width="82dp"
+                                                    android:gravity="center"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="12dp"
+                                        android:layout_height="0dp" />
+
+                                        <!-- 传感器2：空气温度 -->
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_marginBottom="16dp"
+                                            app:cardBackgroundColor="#E9F2E6"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/sun_temp" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="93dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="空气温度(℃)："
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_tempdata"
+                                                    android:layout_width="82dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+
+                                    </LinearLayout>
+
+                                    <!-- 第二行：土壤湿度 + 空气湿度 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="16dp"
+                                            app:cardBackgroundColor="#E9F2E9"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                        <!-- 传感器3：土壤湿度 -->
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/jun_water" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="土壤湿度(RH%)："
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_Soil_Humi"
+                                                    android:layout_width="82dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                            <View
+                                                android:layout_width="12dp"
+                                                android:layout_height="0dp" />
+                                        </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="12dp"
+                                            android:layout_height="0dp" />
+                                        <!-- 传感器4：空气湿度 -->
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="16dp"
+                                            app:cardBackgroundColor="#E9F2E9"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/o_water" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="空气湿度(RH%)："
+                                                    android:gravity="center"
+                                                    android:textColor="#000000"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_humity"
+                                                    android:layout_width="82dp"
+                                                    android:gravity="center"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                    </LinearLayout>
+
+                                    <!-- 第三行：光照强度 + CO2浓度 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <!-- 传感器5：光照强度 -->
+                                        <androidx.cardview.widget.CardView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:layout_weight="1"
+                                        android:layout_marginBottom="16dp"
+                                        app:cardBackgroundColor="#E9F2E9"
+                                        app:cardCornerRadius="24dp"
+                                        app:cardElevation="4dp">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/sun" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="光照强度(Nits)："
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_Lumi"
+                                                    android:layout_width="82dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="12dp"
+                                            android:layout_height="0dp" />
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="16dp"
+                                            app:cardBackgroundColor="#E9F2E9"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                        <!-- 传感器6：CO2浓度 -->
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_5">
+
+                                            <ImageView
+                                                android:layout_width="61dp"
+                                                android:layout_height="63dp"
+                                                android:adjustViewBounds="true"
+                                                android:alpha="1"
+                                                android:maxHeight="@dimen/nav_icon_size"
+                                                android:maxWidth="@dimen/nav_icon_size"
+                                                android:scaleType="fitCenter"
+                                                android:src="@drawable/co2" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="123dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="CO2浓度(ppm)："
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_CO2"
+                                                    android:layout_width="82dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:textColor="#000000"
+                                                    android:gravity="center"
+                                                    android:textSize="14dp" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="12dp"
+                                            android:layout_height="0dp" />
+                                        <!-- 传感器7：pH值 -->
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="4dp"
+                                            app:cardBackgroundColor="#E9F2E9"
+                                            app:cardCornerRadius="24dp"
+                                            app:cardElevation="4dp">
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="@dimen/margin_8"
+                                                android:gravity="center"
+                                                android:orientation="vertical"
+                                                android:padding="@dimen/margin_5">
+
+                                                <ImageView
+                                                    android:layout_width="61dp"
+                                                    android:layout_height="63dp"
+                                                    android:adjustViewBounds="true"
+                                                    android:alpha="1"
+                                                    android:maxHeight="@dimen/nav_icon_size"
+                                                    android:maxWidth="@dimen/nav_icon_size"
+                                                    android:scaleType="fitCenter"
+                                                    android:src="@drawable/ph" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="93dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="pH值："
+                                                        android:gravity="center"
+                                                        android:textColor="#000000"
+                                                        android:textSize="14dp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_pH"
+                                                        android:layout_width="82dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:textColor="#000000"
+                                                        android:gravity="center"
+                                                        android:textSize="14dp" />
+                                                </LinearLayout>
+                                            </LinearLayout>
+                                        </androidx.cardview.widget.CardView>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                            <!-- 生长状态模块 -->
+                            <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            app:cardBackgroundColor="#F6F8F5"
+                            app:cardCornerRadius="24dp"
+                            app:cardElevation="4dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#F6F8F5"
+                                android:orientation="vertical"
+                                android:padding="@dimen/margin_15"
+
+                                android:elevation="3dp"
+                                android:paddingBottom="@dimen/margin_20">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="生长状态"
+                                        android:textColor="#365A3E"
+                                        android:textSize="@dimen/text_size_20"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="@dimen/margin_15"
+                                    android:gravity="center"
+
+                                    android:paddingHorizontal="@dimen/margin_5">
+                                    <View
+                                        android:layout_width="12dp"
+                                        android:layout_height="0dp" />
+                                    <!-- 阶段1：催菇诱导期 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+
+                                        android:gravity="center">
+
+                                        <ImageView
+                                            android:id="@+id/iv_stage_1"
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_marginHorizontal="5dp"
+                                            android:elevation="3dp"
+                                            android:padding="2dp"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/light_image_1"
+                                            android:transitionName="stage1" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="播种发菌期"
+                                            android:textSize="14dp"
+                                            android:textColor="#2E7D32"
+                                            android:layout_marginTop="@dimen/margin_5"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                    <View
+                                        android:layout_width="12dp"
+                                        android:layout_height="0dp" />
+                                    <!-- 阶段2：原基形成期（补充完整布局） -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:id="@+id/iv_stage_2"
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                        android:layout_marginHorizontal="5dp"
+                                        android:src="@drawable/light_image_2"
+                                        android:scaleType="centerCrop"
+                                        android:elevation="3dp"
+                                        android:padding="2dp"
+                                        android:transitionName="stage2" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="催菇诱导期"
+                                            android:textSize="14dp"
+                                            android:textColor="#2E7D32"
+                                            android:layout_marginTop="@dimen/margin_5"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                    <View
+                                        android:layout_width="12dp"
+                                        android:layout_height="0dp" />
+                                    <!-- 阶段3：子实体生长期（补充完整布局） -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:gravity="center">
+                                        <ImageView
+                                            android:id="@+id/iv_stage_3"
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                        android:layout_marginHorizontal="5dp"
+                                        android:src="@drawable/light_image_3"
+                                        android:scaleType="centerCrop"
+                                        android:elevation="3dp"
+                                        android:padding="2dp"
+                                        android:transitionName="stage3" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="实体生长期"
+                                            android:textSize="14dp"
+                                            android:textColor="#2E7D32"
+                                            android:layout_marginTop="@dimen/margin_5"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                    <View
+                                        android:layout_width="12dp"
+                                        android:layout_height="0dp" />
+                                    <!-- 阶段4：成熟期（补充完整布局） -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        >
+                                        <ImageView
+                                            android:id="@+id/iv_stage_4"
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                        android:layout_marginHorizontal="5dp"
+                                        android:src="@drawable/light_image_4"
+                                        android:scaleType="centerCrop"
+                                        android:elevation="3dp"
+                                        android:padding="2dp"
+                                        android:transitionName="stage4" />
+
+                                        <TextView
+
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="成熟收采期"
+                                            android:gravity="center"
+                                            android:textSize="14dp"
+                                            android:textColor="#2E7D32"
+                                            android:layout_marginTop="@dimen/margin_5"
+                                            android:textStyle="bold"
+                                    />
+                                        <View
+                                            android:layout_width="12dp"
+                                            android:layout_height="0dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <!-- 进度文本（新增ID） -->
+                                <TextView
+                                    android:id="@+id/tv_growth_progress"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_15"
+                                    android:text="当前进度：未开始"
+                                    android:textColor="#13431B"
+                                    android:textSize="@dimen/text_size_14"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_gravity="center" />
+                                <!-- 健康文本（新增ID） -->
+                                <TextView
+                                    android:id="@+id/tv_AIWarning"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_15"
+                                    android:text="健康状态：未知"
+                                    android:textColor="#13431B"
+                                    android:textSize="@dimen/text_size_16"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:layout_gravity="center" />
+                            </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <Button
+                                android:id="@+id/btn_get_ai_suggestion"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/btn_bg"
+                                android:text="获取AI建议"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <!-- 实时视频 -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                app:cardBackgroundColor="#F6F8F5"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="4dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#F6F8F5"
+                                android:orientation="vertical"
+                                android:padding="12dp"
+                                android:layout_marginBottom="@dimen/margin_15">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" 实时视频"
+                                    android:textColor="#365A3E"
+                                    android:textSize="@dimen/text_size_20"
+                                    android:textStyle="bold" />
+
+                                <HorizontalScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="#F6F8F5"
+
+                                    android:scrollbars="none">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:background="#F6F8F5"
+                                        android:spacing="@dimen/margin_8">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="150dp"
+                                            android:minHeight="120dp"
+                                            android:background="#F6F8F5"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_8">
+
+                                            <Button
+                                                android:id="@+id/video1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:background="@drawable/mogu2"
+                                                android:minWidth="58dp"
+                                                android:minHeight="29dp"
+                                                android:textAllCaps="false"
+                                                android:textColor="#090909"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold" />
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/margin_5"
+                                                android:text="大棚1号视频"
+                                                android:textColor="#5A713F"
+                                                android:textSize="@dimen/text_size_14"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="150dp"
+                                            android:minHeight="120dp"
+                                            android:background="#F6F8F5"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_8">
+
+                                            <Button
+                                                android:id="@+id/video2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:background="@drawable/mogu1"
+                                                android:minWidth="58dp"
+                                                android:minHeight="29dp"
+                                                android:textAllCaps="false"
+                                                android:textColor="#090909"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/margin_5"
+                                                android:text="大棚2号视频"
+                                                android:textColor="#5A713F"
+                                                android:textSize="@dimen/text_size_14"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="150dp"
+                                            android:minHeight="120dp"
+                                            android:background="#F6F8F5"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_8">
+
+                                            <Button
+                                                android:id="@+id/video3"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:background="@drawable/mogu5"
+                                                android:minWidth="58dp"
+                                                android:minHeight="29dp"
+                                                android:textAllCaps="false"
+                                                android:textColor="#090909"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/margin_5"
+                                                android:text="大棚3号视频"
+                                                android:textColor="#5A713F"
+                                                android:textSize="@dimen/text_size_14"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="150dp"
+                                            android:minHeight="120dp"
+                                            android:background="#F6F8F5"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_8">
+
+                                            <Button
+                                                android:id="@+id/video4"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:background="@drawable/mogu4"
+                                                android:minWidth="58dp"
+                                                android:minHeight="29dp"
+                                                android:textAllCaps="false"
+                                                android:textColor="#090909"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/margin_5"
+                                                android:text="大棚4号视频"
+                                                android:textColor="#5A713F"
+                                                android:textSize="@dimen/text_size_14"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="150dp"
+                                            android:minHeight="120dp"
+                                            android:background="#F6F8F5"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/margin_8">
+
+                                            <Button
+                                                android:id="@+id/video5"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:background="@drawable/mogu6"
+                                                android:minWidth="58dp"
+                                                android:minHeight="29dp"
+                                                android:textAllCaps="false"
+                                                android:textColor="#090909"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/margin_5"
+                                                android:text="大棚5号视频"
+                                                android:textColor="#5A713F"
+                                                android:textSize="@dimen/text_size_14"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </HorizontalScrollView>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                            <!-- 设备状态 -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                app:cardBackgroundColor="#F6F8F5"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="4dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#F6F8F5"
+                                android:orientation="vertical"
+                                android:padding="12dp"
+                                android:layout_marginBottom="@dimen/margin_15">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_8"
+
+                                    android:text=" 设备状态"
+                                    android:textColor="#365A3E"
+                                    android:textSize="@dimen/text_size_20"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/margin_2"
+                                    android:paddingTop="@dimen/margin_5"
+                                    android:paddingRight="@dimen/margin_2">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="   挡光板状态："
+                                            android:layout_marginTop="@dimen/margin_8"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/DangGuangBan"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <ToggleButton
+                                            android:id="@+id/onDangFengBan"
+                                            android:layout_width="80dp"
+                                            android:layout_height="32dp"
+                                            android:layout_marginRight="@dimen/margin_20"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:textColor="#FFFFFF"
+                                            android:textOff="开"
+                                            android:textOn="关"
+                                            android:textSize="@dimen/text_size_14" />
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/margin_8"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:text="   药泵状态："
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tv_medicine"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <ToggleButton
+                                            android:id="@+id/onHealthy"
+                                            android:layout_width="80dp"
+                                            android:layout_height="32dp"
+                                            android:layout_marginRight="@dimen/margin_20"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:textColor="#FFFFFF"
+                                            android:textOff="开"
+                                            android:textOn="关"
+                                            android:textSize="@dimen/text_size_14" />
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="   水泵状态："
+                                            android:layout_marginTop="@dimen/margin_8"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tv_Bump"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <ToggleButton
+                                            android:id="@+id/onBump"
+                                            android:layout_width="80dp"
+                                            android:layout_height="32dp"
+                                            android:layout_marginRight="@dimen/margin_20"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:textColor="#FFFFFF"
+                                            android:textOff="开"
+                                            android:textOn="关"
+                                            android:textSize="@dimen/text_size_14" />
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/margin_8"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:text="   灯泡状态："
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/LightSt"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <ToggleButton
+                                            android:id="@+id/onLight"
+                                            android:layout_width="80dp"
+                                            android:layout_height="32dp"
+                                            android:layout_marginRight="@dimen/margin_20"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:textColor="#FFFFFF"
+                                            android:textOff="开"
+                                            android:textOn="关"
+                                            android:textSize="@dimen/text_size_14" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/margin_8"
+                                            android:layout_marginBottom="@dimen/margin_8"
+                                            android:text="   风扇档位："
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tv_Fengd"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#141E17"
+                                            android:textSize="@dimen/text_size_16"
+                                            android:textStyle="bold" />
+
+                                        <Button
+                                            android:id="@+id/upFengD"
+                                            android:layout_width="36dp"
+                                            android:layout_height="32dp"
+                                            android:layout_marginRight="@dimen/margin_8"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:text="调高"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="@dimen/text_size_14" />
+
+                                        <Button
+                                            android:id="@+id/downFengD"
+                                            android:layout_width="36dp"
+                                            android:layout_height="32dp"
+                                            android:background="@drawable/btn_bg"
+                                            android:gravity="center"
+                                            android:text="调低"
+                                            android:textColor="#FFFFFF"
+                                            android:layout_marginRight="@dimen/margin_20"
+                                            android:textSize="@dimen/text_size_14" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/layout_bottom_nav"/>
+</LinearLayout>
+
+

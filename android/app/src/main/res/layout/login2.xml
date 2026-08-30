@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#E9F2E6">
+    <View android:layout_width="350dp" android:layout_height="350dp" android:layout_gravity="top|end" android:layout_marginEnd="-100dp" android:layout_marginTop="-50dp" android:alpha="0.15" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:background="@drawable/image_9" android:backgroundTint="#CCFFFFFF" android:backgroundTintMode="src_over">
+        <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:scrollbars="none">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:paddingVertical="30dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="25dp" android:gravity="center" android:text="温芯菌控管理系统" android:textColor="#1B320E" android:textSize="28sp" android:textStyle="bold" />
+                <androidx.cardview.widget.CardView android:layout_width="wrap_content" android:layout_height="wrap_content" app:cardCornerRadius="20dp" app:cardElevation="10dp" app:cardBackgroundColor="#00FFFFFF">
+                    <ImageView android:id="@+id/img14" android:layout_width="120dp" android:layout_height="135dp" android:scaleType="fitCenter" android:src="@drawable/image_14" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="25dp" android:layout_marginTop="30dp" app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="28dp" app:cardElevation="6dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="25dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:background="#F2F6F1" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="16dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:text="+86" android:textColor="#4A6142" android:textSize="18sp" android:textStyle="bold" />
+                            <EditText android:id="@+id/et_phone" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:hint="请输入手机号" android:inputType="phone" android:textColor="#4A6142" android:textColorHint="#9EBA95" android:textSize="16sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="16dp" android:background="#F2F6F1" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="16dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:text="密码" android:textColor="#4A6142" android:textSize="18sp" android:textStyle="bold" />
+                            <EditText android:id="@+id/et_password" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@null" android:hint="请输入密码" android:inputType="textPassword" android:textColor="#4A6142" android:textColorHint="#9EBA95" android:textSize="16sp" />
+                            <ImageView android:id="@+id/iv_pwd_eye" android:layout_width="22dp" android:layout_height="22dp" android:src="@android:drawable/ic_menu_view" app:tint="#9EBA95" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:gravity="center" android:orientation="horizontal">
+                            <Button android:id="@+id/btn_newpsw1" android:backgroundTint="#DFEFE0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="8dp" android:text="忘记密码" android:textColor="#5A7153" android:textSize="14sp" />
+                            <View android:layout_width="1dp" android:layout_height="12dp" android:layout_marginHorizontal="15dp" android:background="#E9F2E6" />
+                            <Button android:id="@+id/btn_reg1" android:layout_width="wrap_content" android:backgroundTint="#DFEFE0" android:layout_height="wrap_content" android:padding="8dp" android:text="注册账号" android:textColor="#5A7153" android:textSize="14sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:orientation="vertical">
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal">
+                                <CheckBox android:id="@+id/cb_agreement" android:layout_width="24dp" android:layout_height="24dp" android:buttonTint="#2E7D32" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:text="我已阅读并同意《用户协议》《隐私政策》" android:textColor="#9EBA95" android:textSize="12sp" />
+                            </LinearLayout>
+                            <Button android:id="@+id/btn_login" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="20dp" android:backgroundTint="#2E7D32" android:text="登录" android:textAllCaps="false" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" app:cornerRadius="27dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <View android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="bottom|start" android:layout_marginStart="30dp" android:layout_marginBottom="50dp" android:alpha="0.4" android:background="@drawable/abc_control_background_material" android:backgroundTint="#2E7D32" android:elevation="50dp" />
+</FrameLayout>

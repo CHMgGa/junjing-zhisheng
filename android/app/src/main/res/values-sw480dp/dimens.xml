@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 间距正常放大 -->
+    <dimen name="margin_15">18dp</dimen>
+    <dimen name="margin_20">22dp</dimen>
+
+    <!-- 导航栏适中 -->
+    <dimen name="nav_height">62dp</dimen>
+    <dimen name="nav_icon_size">26dp</dimen>
+
+    <!-- 文字适中放大 -->
+    <dimen name="text_size_14">15sp</dimen>
+    <dimen name="text_size_20">21sp</dimen>
+    <dimen name="text_size_30">29sp</dimen>
+
+    <!-- 输入框/按钮高度适中 -->
+    <dimen name="edit_text_height">48dp</dimen>
+    <dimen name="btn_height">52dp</dimen>
+</resources>

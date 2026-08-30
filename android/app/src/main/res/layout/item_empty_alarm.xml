@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="140dp" android:clipChildren="false" android:clipToPadding="false">
+    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center" android:alpha="0.1" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" />
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginHorizontal="12dp" android:layout_marginVertical="8dp" app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="24dp" app:cardElevation="3dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="暂无告警记录" android:textSize="@dimen/text_size_18" android:textColor="#4A6142" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="系统运行正常" android:textSize="@dimen/text_size_14" android:textColor="#9EBA95" />
+            <View android:layout_width="6dp" android:layout_height="6dp" android:layout_marginTop="12dp" android:background="#2E7D32" android:alpha="0.6" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <View android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="top|end" android:layout_marginEnd="20dp" android:layout_marginTop="5dp" android:alpha="0.4" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" android:elevation="50dp" />
+</FrameLayout>

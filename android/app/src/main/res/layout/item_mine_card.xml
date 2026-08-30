@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:clipChildren="false" android:clipToPadding="false">
+    <View android:layout_width="60dp" android:layout_height="60dp" android:layout_gravity="center_vertical|start" android:layout_marginStart="-20dp" android:alpha="0.1" android:background="@drawable/abc_control_background_material" android:backgroundTint="#A8C69F" />
+    <androidx.cardview.widget.CardView android:id="@+id/cardRoot" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginHorizontal="12dp" android:layout_marginBottom="12dp" android:clickable="true" android:focusable="true" app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="18dp" app:cardElevation="3dp" app:strokeColor="#E9F2E6" app:strokeWidth="1.5dp" android:foreground="?attr/selectableItemBackground">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="20dp" android:paddingEnd="16dp">
+            <TextView android:id="@+id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的大棚" android:textSize="@dimen/text_size_14" android:textColor="#4A6142" android:textStyle="bold" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView android:id="@+id/ivArrow" android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/ic_chevron_right" android:contentDescription="@null" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:tint="#9EBA95" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <View android:layout_width="14dp" android:layout_height="14dp" android:layout_gravity="center_vertical|end" android:layout_marginEnd="6dp" android:alpha="0.5" android:background="@drawable/abc_control_background_material" android:backgroundTint="#2E7D32" android:elevation="50dp" />
+</FrameLayout>
