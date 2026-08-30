@@ -1,0 +1,92 @@
+﻿server:
+  port: 8084
+
+spring:
+  application:
+    name: smart-greenhouse-backend
+  profiles:
+    active: mysql,mock
+  datasource:
+    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/smart_greenhouse?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    hikari:
+      pool-name: MorelMysqlPool
+      maximum-pool-size: 12
+      minimum-idle: 2
+      connection-timeout: 15000
+  mail:
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:true}
+          ssl:
+            enable: ${MAIL_SMTP_SSL:false}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS:true}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+greenhouse:
+  database:
+    initialize-enabled: ${GREENHOUSE_DB_INIT_ENABLED:true}
+  demo-telemetry:
+    enabled: ${GREENHOUSE_DEMO_TELEMETRY_ENABLED:true}
+    fixed-delay-ms: ${GREENHOUSE_DEMO_TELEMETRY_FIXED_DELAY_MS:60000}
+    stale-after-seconds: ${GREENHOUSE_DEMO_TELEMETRY_STALE_AFTER_SECONDS:90}
+  ai:
+    service-url: ${MOREL_AI_SERVICE_URL:http://127.0.0.1:18080}
+    scheduled-analysis-enabled: ${MOREL_AI_SCHEDULED_ANALYSIS_ENABLED:true}
+    scheduled-analysis-fixed-delay-ms: ${MOREL_AI_SCHEDULED_ANALYSIS_FIXED_DELAY_MS:300000}
+  hardware:
+    gateway-enabled: false
+    mqtt-topic-prefix: morel/greenhouse
+  iot:
+    huawei:
+      webhook-token: ${HUAWEI_IOT_WEBHOOK_TOKEN:}
+      default-device-id: ${HUAWEI_IOT_DEFAULT_DEVICE_ID:}
+      device-greenhouse-map: ${HUAWEI_IOT_DEVICE_GREENHOUSE_MAP:}
+      pull-enabled: ${HUAWEI_IOT_PULL_ENABLED:false}
+      pull-fixed-delay-ms: ${HUAWEI_IOT_PULL_FIXED_DELAY_MS:60000}
+      pull-device-ids: ${HUAWEI_IOT_PULL_DEVICE_IDS:}
+      ak: ${HUAWEI_IOT_AK:}
+      sk: ${HUAWEI_IOT_SK:}
+      project-id: ${HUAWEI_IOT_PROJECT_ID:}
+      region-id: ${HUAWEI_IOT_REGION_ID:}
+      endpoint: ${HUAWEI_IOT_ENDPOINT:}
+      derived-auth: ${HUAWEI_IOT_DERIVED_AUTH:}
+      command-enabled: ${HUAWEI_IOT_COMMAND_ENABLED:false}
+      command-service-id: ${HUAWEI_IOT_COMMAND_SERVICE_ID:}
+      instance-id: ${HUAWEI_IOT_INSTANCE_ID:}
+  security:
+    admin-username: ${ADMIN_USERNAME:admin}
+    admin-default-password: ${ADMIN_DEFAULT_PASSWORD:}
+  verification:
+    email-from: ${MAIL_FROM:${MAIL_USERNAME:}}
+    code-ttl-minutes: ${VERIFICATION_CODE_TTL_MINUTES:5}
+    min-send-interval-seconds: ${VERIFICATION_MIN_SEND_INTERVAL_SECONDS:60}
+    max-send-per-hour: ${VERIFICATION_MAX_SEND_PER_HOUR:5}
+    max-ip-send-per-hour: ${VERIFICATION_MAX_IP_SEND_PER_HOUR:20}
+    cleanup-retention-hours: ${VERIFICATION_CLEANUP_RETENTION_HOURS:24}
+    mail-max-retry: ${VERIFICATION_MAIL_MAX_RETRY:2}
+    mail-retry-backoff-ms: ${VERIFICATION_MAIL_RETRY_BACKOFF_MS:800}
+
+logging:
+  level:
+    root: info
+    com.morel.greenhouse: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] trace=%X{traceId:-} user=%X{user:-anonymous} %logger{36} - %msg%n"

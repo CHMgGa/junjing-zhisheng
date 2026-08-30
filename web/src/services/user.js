@@ -1,0 +1,18 @@
+import { http } from './http'
+
+export const fetchProfile = (id) => http.get(`/users/${id}/profile`)
+export const updateProfile = (id, payload) => http.put(`/users/${id}/profile`, payload)
+export const submitFeedback = (payload) => http.post('/users/feedback', payload)
+export const fetchUsers = (params) => http.get('/users', { params })
+export const createUser = (payload) => http.post('/users', payload)
+export const updateUser = (id, payload) => http.put(`/users/${id}`, payload)
+export const deleteUser = (id) => http.delete(`/users/${id}`)
+export const fetchAdmins = () => http.get('/users/admins')
+export const fetchFarmerGreenhouses = (id) => http.get(`/users/${id}/greenhouses`)
+export const bindFarmerGreenhouses = (id, payload) => http.post(`/users/${id}/greenhouses`, payload)
+export const unbindFarmerGreenhouse = (id, greenhouseId) => http.delete(`/users/${id}/greenhouses/${greenhouseId}`)
+export const fetchFeedbacks = (params) => http.get('/users/feedback', { params })
+export const fetchFeedbackConversations = () => http.get('/users/feedback/conversations')
+export const fetchUnreadFeedback = () => http.get('/users/feedback/unread')
+export const fetchFeedbackMessages = (id) => http.get(`/users/feedback/conversations/${id}/messages`)
+export const sendFeedbackMessage = (payload) => http.post('/users/feedback/messages', payload)
