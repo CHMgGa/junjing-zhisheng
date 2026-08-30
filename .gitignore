@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# build outputs
+dist/
+build/
+target/
+out/
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Android
+.gradle/
+app/build/
+local.properties
+
+# secrets
+.env
+.env.*
+!.env.example
+application-prod.yml
+application-prod.yaml
+
+# logs
+*.log
+logs/
+
+# large model/video files
+*.pt
+*.onnx
+*.mp4
+*.avi
+*.mov
