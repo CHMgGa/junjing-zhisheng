@@ -1,9 +1,7 @@
-﻿# Web Management and Farmer Portal
-
-## Configuration and Run
-
-Copy `.env.example` to `.env` and set local values as needed. Do not commit `.env`.
-
+# Web 绠＄悊绔笌鍐滄埛绔?
+鏈ā鍧楁彁渚涚鐞嗗憳涓庡啘鎴蜂娇鐢ㄧ殑 Web 椤甸潰锛屽寘鎷櫥褰曘€佹暟鎹睍绀恒€佸憡璀︺€佽澶囥€佹壒娆℃函婧愬拰 AI 鍔╂墜绛夊姛鑳姐€?
+## 閰嶇疆涓庤繍琛?
+灏?`.env.example` 澶嶅埗涓?`.env`锛屾寜闇€瑕佸～鍐欐湰鏈洪厤缃紱`.env` 涓嶅簲鎻愪氦鍒?Git銆?
 ```bash
 npm install
 npm run dev
