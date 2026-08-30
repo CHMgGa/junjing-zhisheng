@@ -1,0 +1,66 @@
+#include "soil_humi.h"
+#include "delay.h"
+
+void Soil_Hum_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStructure;
+	
+  // ??GPIOA??(PA9)
+  RCC_APB2PeriphClockCmd(SOIL_HUM_GPIO_CLK, ENABLE);	
+	
+  // ??PA9???????
+  GPIO_InitStructure.GPIO_Pin = SOIL_HUM_GPIO_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;	
+  GPIO_Init(SOIL_HUM_GPIO_PORT, &GPIO_InitStructure);	
+	
+  // ???ADC3
+  Adc3_Init();
+}
+
+u8 Soil_Hum_Get_Val(void)
+{
+	u32 temp_val = 0;
+	u8 t;
+	u8 hum_val = 0;
+	
+	// 1. ??????
+	for(t = 0; t < SOIL_HUM_READ_TIMES; t++)
+	{
+		// ??ADC??????(?????:?????????)
+		u16 single_adc = Get_Adc3(SOIL_HUM_ADC_CHX);
+		if(single_adc > 4095) single_adc = 4095;
+		if(single_adc < 0) single_adc = 0;
+		temp_val += single_adc;
+		
+		delay_ms(5);
+	}
+	
+	// 2. ????
+	temp_val /= SOIL_HUM_READ_TIMES;
+	
+	// 3. ???????(?????:??0~4000)
+	if(temp_val > 4000) 
+		temp_val = 4000;
+	else if(temp_val < 0) 
+		temp_val = 0;
+	
+	// 4. ?????
+	hum_val = 100 - (temp_val / 40);
+	
+	// 5. ????(???:????0~100,????)
+	if(hum_val > 100)
+		hum_val = 100;
+	else if(hum_val < 0)
+		hum_val = 0;
+	
+	// ??:????(????,?????????)
+	/*
+	// ADC??1000~3000?????????(?????)
+	if(temp_val > 1000 && temp_val < 3000)
+	{
+		return 0xFF;  // ?0xFF??“?????”,?????
+	}
+	*/
+	
+	return hum_val;
+}

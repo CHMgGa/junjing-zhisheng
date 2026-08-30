@@ -1,0 +1,14 @@
+# 本目录仅含核心源码，无需 Keil 工程忽略规则；保留基础防护
+# 若将来重新加入完整工程，请补充：OBJ/、*.uvguix*、*.uvoptx、.cmsis/ 等
+
+# IDE
+.vscode/
+.idea/
+
+# 敏感配置文件
+.env
+.env.*
+
+# 系统文件
+.DS_Store
+Thumbs.db
